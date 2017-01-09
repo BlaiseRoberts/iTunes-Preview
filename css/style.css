@@ -1,9 +1,10 @@
+
 .nav {
 	background-color: #FFB4B0;
 	border: 2px solid black;
 	margin: 1em;
-	padding-top: .5em;
-	padding-bottom: .5em;
+	width: 94%;
+	padding: 1em;
 }
 
 li {
@@ -21,14 +22,14 @@ li {
 	border: 2px solid black;
 	margin: 1em;
 	text-align: center;
-	height: 30em;
+	min-height: 30em;
 }
 
 .songInfo {
 	background-color: #FEFAC0;
 	border: 2px solid black;
 	margin: 1em;
-	height: 30em;
+	min-height: 30em;
 }
 
 .songName {
