@@ -11,18 +11,29 @@ li {
 	margin-right: 15px;
 }
 
+.genreCheck {
+	text-align: left;
+	margin: 1.7em;
+}
+
 .form {
 	background-color: #4DD7FA;
 	border: 2px solid black;
 	margin: 1em;
 	text-align: center;
+	height: 30em;
 }
 
-.songName {
+.songInfo {
 	background-color: #FEFAC0;
 	border: 2px solid black;
 	margin: 1em;
+	height: 30em;
+}
 
+.songName {
+	padding-left: 1em;
+	color: #785616;
 }
 
 body {

@@ -17,7 +17,7 @@
 		</ul>
 	</div>
 		<div class="row">
-			<div class="col-md-4 form">
+			<div class="col-md-3 form">
 				<form>
 					<label>Song length:</label>
 					<input type="range" name="songLength">
@@ -42,23 +42,56 @@
 					</select>
 					<br>
 					<label>Genre:</label>
-					<br>
-					<input type="checkbox" name="genre">Rock
-					<input type="checkbox" name="genre">Classical
-					<br>
-					<input type="checkbox" name="genre">Pop
-					<input type="checkbox" name="genre">Jazz
-					<br>
-					<input type="checkbox" name="genre">Blues
-					<input type="checkbox" name="genre">Hip hop
-					<br>
+
+					<div class="row genreCheck">
+						<div class="col-md-6">
+							<input type="checkbox" name="genre">Rock
+						</div>
+						<div class="col-md-6">
+							<input type="checkbox" name="genre">Classical
+						</div>
+						<div class="col-md-6">
+							<input type="checkbox" name="genre">Pop
+						</div>
+						<div class="col-md-6">
+							<input type="checkbox" name="genre">Jazz
+						</div>
+						<div class="col-md-6">
+							<input type="checkbox" name="genre">Blues
+						</div>
+						<div class="col-md-6">
+							<input type="checkbox" name="genre">Hip hop
+						</div>
+					</div>
+
 					<button type="button">Filter</button>
 				</form>
 			</div>
-			<div class="col-md-7 songName">
-				<p>
-					fasdfasdfkjfwejbfkjsadbflhkabsdv kajsdhfkjsadhf  kjasdhfkjhasdkjfh l;asdjf;ljsadf lkajsdflj  lksnfaldkj
-				</p>
+			<div class="col-md-8 songInfo">
+				<section class="row">
+					<h1 class="songName">Song Name</h1>
+						<div class="col-md-3">Artist name</div>
+						<div class="col-md-3">Album name</div>
+						<div class="col-md-3">Genre</div>
+				</section>
+				<section class="row">
+					<h1 class="songName">Song Name</h1>
+						<div class="col-md-3">Artist name</div>
+						<div class="col-md-3">Album name</div>
+						<div class="col-md-3">Genre</div>
+				</section>
+				<section class="row">
+					<h1 class="songName">Song Name</h1>
+						<div class="col-md-3">Artist name</div>
+						<div class="col-md-3">Album name</div>
+						<div class="col-md-3">Genre</div>
+				</section>
+				<section class="row">
+					<h1 class="songName">Song Name</h1>
+						<div class="col-md-3">Artist name</div>
+						<div class="col-md-3">Album name</div>
+						<div class="col-md-3">Genre</div>
+				</section>
 			</div>
 		</div>
 </body>
