@@ -22,7 +22,7 @@ for (var i = 0; i < songs.length; i++) {
 	songs[i] = songs[i].replace("@","");
 	songs[i] = songs[i].replace("(","");
 	songs[i] = songs[i].replace("!","");
-	console.log(songs[i]);
+	// console.log(songs[i]);
 
 	//make titles array
 	var newTitle = songs[i].split(" - by",2);
