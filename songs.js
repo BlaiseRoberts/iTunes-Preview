@@ -1,4 +1,9 @@
 var songs = [];
+var titles = [];
+var artists = [];
+var albums = [];
+
+
 
 songs[songs.length] = "Legs > by Z*ZTop on the album Eliminator";
 songs[songs.length] = "The Logical Song > by Supertr@amp on the album Breakfast in America";
@@ -19,4 +24,30 @@ for (var i = 0; i < songs.length; i++) {
 	songs[i] = songs[i].replace("!","");
 	console.log(songs[i]);
 
+	//make titles array
+	var newTitle = songs[i].split(" - by",2);
+	titles = newTitle[0];
+	// console.log(titles)
+	var newArray = newTitle[1];
+	// console.log(newArray)
+
+	//make artists array
+	var newArtist = newArray.split(" on the album ",2);
+	artist = newArtist[0];
+
+	// console.log(artist)
+
+	album = newArtist [1];
+	// console.log(album)
+
+
+//print to DOM
+
+	var songInfo = document.getElementById("songInfo")
+
+	songInfo.innerHTML = songInfo.innerHTML + "<section class='row'><h1 class='songName'>" + titles + "</h1><div class='col-md-4'>Artist:  " + artist + "</div><div class='col-md-4'>Album:  " + album + "</div>";
 }
+
+
+
+
