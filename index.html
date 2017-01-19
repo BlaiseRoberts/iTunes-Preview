@@ -4,20 +4,23 @@
 <head>
   <meta charset="utf-8">
   <title>Music History</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body class="container-fluid">
-	<div role="navigation" class="row topBlock">
-		<ul class="nav nav-pills col-md-11">
-			<li role="presentation"><a href="#" id="link-music-list">View Music</a></li>
-			<li role="presentation"><a href="#" id="link-add-music">Add Music</a></li>
-			<li role="presentation"><a href="#">Profile</a></li>
-		</ul>
-	</div>
+	<nav>
+	    <div class="nav-wrapper">
+		    <ul id="nav-mobile" class="left hide-on-med-and-down">
+		      <li><a href="#">View Music</a></li>
+		      <li><a href="#">Add Music</a></li>
+		      <li><a href="#">Profile</a></li>
+		    </ul>
+	    </div>
+	</nav>
+	<div class="container">
 		<div class="row visible" id="list-music-view">
-			<div class="col-md-3 form">
+			<div class="col s3 form">
 				<form>
 					<label>Song length:</label>
 					<input type="range" name="songLength">
@@ -44,22 +47,22 @@
 					<label>Genre:</label>
 
 					<div class="row genreCheck">
-						<div class="col-md-6">
+						<div class="col s6">
 							<input type="checkbox" name="genre">Rock
 						</div>
-						<div class="col-md-6">
+						<div class="col s6">
 							<input type="checkbox" name="genre">Classical
 						</div>
-						<div class="col-md-6">
+						<div class="col s6">
 							<input type="checkbox" name="genre">Pop
 						</div>
-						<div class="col-md-6">
+						<div class="col s6">
 							<input type="checkbox" name="genre">Jazz
 						</div>
-						<div class="col-md-6">
+						<div class="col s6">
 							<input type="checkbox" name="genre">Blues
 						</div>
-						<div class="col-md-6">
+						<div class="col s6">
 							<input type="checkbox" name="genre">Hip hop
 						</div>
 					</div>
@@ -67,12 +70,13 @@
 					<button type="button">Filter</button>
 				</form>
 			</div>
-			<div class="col-md-8 songInfo" id="songInfo">
+			<div class="col s8 songInfo" id="songInfo">
 		
 			<!-- 	Print to DOM here -->
 
 			</div>
 		</div>
+	</div>
 		<section class="hidden" id="add-music-view">
 			<div class="flexrow">
 			<label for=songName"">Song Name :</label>

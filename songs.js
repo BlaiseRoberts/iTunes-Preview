@@ -49,7 +49,7 @@ function printArrayToDOM () {
 
 		var songInfo = document.getElementById("songInfo")
 
-		songInfo.innerHTML += "<section class='row'><h1 class='songName'>" + titles + "</h1><div class='col-md-4'>Artist:  " + artist + "</div><div class='col-md-4'>Album:  " + album + "</div>";
+		songInfo.innerHTML += "<section class='row'><h1 class='songName'>" + titles + "</h1><div class='col s4'>Artist:  " + artist + "</div><div class='col s6'>Album:  " + album + "</div>";
 	}
 
 }
