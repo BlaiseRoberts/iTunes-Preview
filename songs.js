@@ -99,7 +99,7 @@ function handleAddingToArray (e) {
 	var newArtist = document.getElementById("newArtist").value
 	var newAlbum = document.getElementById("newAlbum").value
 	var newArrayItem = newSongTitle + " > by " + newArtist + " on the album " + newAlbum
-	songs.push(newArrayItem)
+	songs.unshift(newArrayItem)
 	//Clear DOM and reprint
 	songInfo.innerHTML = ""
 	printArrayToDOM()
