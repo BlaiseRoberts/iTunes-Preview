@@ -1,3 +1,31 @@
+#add-music-view {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: baseline;
+	width: 40%;
+	margin-left: 35%;
+	height: 10em;
+}
+
+.flexrow {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	width: 60%
+}
+
+input {
+	border: 2px solid #000;
+}
+
+#addButton {
+	margin-left: 25%;
+	width: 50%;
+	border: 2px solid #000;
+	border-radius: .5em;
+	font-weight: bold;
+}
 
 .nav {
 	background-color: #FFB4B0;
@@ -40,3 +68,14 @@ li {
 body {
 	width: 100%;
 }
+
+.visible {
+	display: block;
+}
+
+.hidden {
+	display: hidden;
+}
+
+
+

@@ -48,6 +48,50 @@ for (var i = 0; i < songs.length; i++) {
 	songInfo.innerHTML = songInfo.innerHTML + "<section class='row'><h1 class='songName'>" + titles + "</h1><div class='col-md-4'>Artist:  " + artist + "</div><div class='col-md-4'>Album:  " + album + "</div>";
 }
 
+//Hiding and Showing DOM Elements
+
+//select DOM elements
+var listMusicView = document.getElementById("list-music-view")
+var addMusicView = document.getElementById("add-music-view")
+var linkMusicList = document.getElementById("link-music-list")
+var linkAddMusic =  document.getElementById("link-add-music")
+
+//add event listeners
+linkMusicList.addEventListener("click", handleListView)
+linkAddMusic.addEventListener("click", handleAddMusic)
+
+//Functions
+function handleListView (e) {
+	listMusicView.classList.remove("hidden")
+	listMusicView.classList.add("visible")
+	addMusicView.classList.add("hidden")
+}
+
+function handleAddMusic (e) {
+	addMusicView.classList.remove("hidden")
+	addMusicView.classList.add("visible")
+	listMusicView.classList.add("hidden")
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

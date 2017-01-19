@@ -11,12 +11,12 @@
 <body class="container-fluid">
 	<div role="navigation" class="row topBlock">
 		<ul class="nav nav-pills col-md-11">
-			<li role="presentation"><a href="#">View Music</a></li>
-			<li role="presentation"><a href="#">Add Music</a></li>
+			<li role="presentation"><a href="#" id="link-music-list">View Music</a></li>
+			<li role="presentation"><a href="#" id="link-add-music">Add Music</a></li>
 			<li role="presentation"><a href="#">Profile</a></li>
 		</ul>
 	</div>
-		<div class="row">
+		<div class="row visible" id="list-music-view">
 			<div class="col-md-3 form">
 				<form>
 					<label>Song length:</label>
@@ -76,6 +76,23 @@
 				</section>
 			</div>
 		</div>
+		<section class="hidden" id="add-music-view">
+			<div class="flexrow">
+			<label for=songName"">Song Name :</label>
+			<input type="text" name="songName">
+			</div>
+			<div class="flexrow">
+			<label for="artist">Artist :</label>
+			<input type="text" name="artist">
+			</div>
+			<div class="flexrow">
+			<label for="album">Album :</label>
+			<input type="text" name="album">
+			</div>
+			<div class="flexrow">
+			<button type="button" id="addButton">Add!!!</button>
+			</div>
+		</section>
 	<script type="text/javascript" src="songs.js"></script>
 </body>
 </html>
