@@ -17,6 +17,7 @@
 
 input {
 	border: 2px solid #000;
+	text-align: center;
 }
 
 #addButton {
@@ -67,6 +68,14 @@ li {
 
 body {
 	width: 100%;
+}
+.button-container{
+	display: flex;
+	justify-content: center;
+	margin-bottom: 1em;
+}
+#song-section {
+	margin: 1em;
 }
 
 .visible {
