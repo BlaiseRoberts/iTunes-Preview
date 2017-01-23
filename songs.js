@@ -82,7 +82,7 @@ function printSongs(x){
 	for (key in x){
 		var songData = ``;
 		var currentSong = x[key];
-		songData += `<section class='row' id="song-section"><h1 class='songName'>${currentSong.title}</h1><div class='col-md-4'>Artist:  ${currentSong.artist}</div><div class='col-md-4'>Album:  ${currentSong.album}</div><button type="button" class="deleteSongButton">DELETE</button></section>`;
+		songData += `<section class='row' id="song-section"><h1 class='songName'>${currentSong.title}</h1><div class='col-md-4'>Artist:  ${currentSong.artist}</div><div class='col-md-4'>Album:  ${currentSong.album}</div><button type="button" class="deleteSongButton btn btn-danger">DELETE</button></section>`;
 		songInfo.innerHTML += songData;
 	}
 	var deleteSongButtons = document.getElementsByClassName("deleteSongButton");
