@@ -17,21 +17,21 @@ $(document).ready(function() {
 	});
 
 
-	//////////////Print songs function
+	//////////////Print/Remove songs function
 
 	function printSongs(x){
 		for (var key in x){
 			var songData = ``;
 			var currentSong = x[key];
-			songData += `<section class='row' id="song-section"><h1 class='songName'>${currentSong.title}</h1><div class='col-md-4'>Artist:  ${currentSong.artist}</div><div class='col-md-4'>Album:  ${currentSong.album}</div><button type="button" class="deleteSongButton btn btn-danger">DELETE</button></section>`;
-			$("#songInfo")[0].innerHTML += songData;
+			songData = `<section class='row' id="song-section"><h1 class='songName'>${currentSong.title}</h1><div class='col-md-4'>Artist:  ${currentSong.artist}</div><div class='col-md-4'>Album:  ${currentSong.album}</div><button type="button" class="deleteSongButton btn btn-danger">DELETE</button></section>`;
+			$("#songInfo").append(songData);
+			removeSong();
 		}
-
+	}
+	function removeSong() {
 		$(".deleteSongButton").click(function(){
 			event.currentTarget.parentNode.remove();
 		});
-
-		
 	}
 
 	//////////////////Hiding and Showing DOM Elements
@@ -67,7 +67,8 @@ $(document).ready(function() {
 		console.log(newAlbum);
 		var newSongData = ``;
 		newSongData += `<section class='row' id="song-section"><h1 class='songName'>${newSongTitle}</h1><div class='col-md-4'>Artist:  ${newArtist}</div><div class='col-md-4'>Album:  ${newAlbum}</div><button type="button" class="deleteSongButton btn btn-danger">DELETE</button></section>`;
-		$("#songInfo")[0].innerHTML += newSongData;
+		$("#songInfo").append(newSongData);
+		removeSong();
 
 		//Clear Inputs
 		$("#newSongName").val("");
