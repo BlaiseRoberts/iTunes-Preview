@@ -64,6 +64,7 @@ li {
 .songName {
 	padding-left: 1em;
 	color: #785616;
+	font-family: Didot, serif;
 }
 
 body {
@@ -77,6 +78,20 @@ body {
 #song-section {
 	margin: 1em;
 }
+.artist {
+	font-size: 1.5em;
+	font-family: skia, sans-serif;
+	text-align: right;
+}
+.album {
+	font-size: 1.5em;
+	font-family: skia, sans-serif;
+	text-align: left;
+}
+span {
+	font-size: .7em;
+}
+
 
 
 

@@ -15,7 +15,7 @@ function printSongs(x){
 	for (var key in x){
 		var songData = ``;
 		var currentSong = x[key];
-		songData = `<section class='row' id="song-section"><h1 class='songName'>${currentSong.title}</h1><div class='col-md-4 artist'>${currentSong.artist}</div><div class='col-md-4 album'>${currentSong.album}</div><button type="button" id="${counter}" class="deleteSongButton btn btn-danger">DELETE</button></section>`;
+		songData = `<section class='row' id="song-section"><h1 class='songName'>${currentSong.title}</h1><div class='col-md-4 artist'><span>by</span> ${currentSong.artist}</div><div class='col-md-4 album'><span>on</span> ${currentSong.album}</div><button type="button" id="${counter}" class="deleteSongButton btn btn-danger text-right">DELETE</button></section>`;
 		$("#songInfo").append(songData);
 		var songDataObj = {
 			id: counter,
