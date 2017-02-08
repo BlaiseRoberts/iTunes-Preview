@@ -42,10 +42,7 @@ $(document).ready(function() {
 
 	let Filter = require('./filter.js');
 
-	$("#filter-button").click(Filter.filterArtist);
-	$("#unfilter-button").click(Filter.unfilterSongs);
-
-
+	$("#filter-button").click(Filter.filterSongs);
 
 
 

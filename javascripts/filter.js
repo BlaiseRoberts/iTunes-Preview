@@ -2,14 +2,24 @@
 
 let Songs = require('./songs.js');
 
-function filterArtist () {
+function filterSongs () {
 	var selectedArtist = $("#artist-selector option:selected").val();
+	console.log(selectedArtist);
+	var selectedAlbum = $("#album-selector option:selected").val();
 	$(".artist").parent().hide();
-	$(".artist:contains("+selectedArtist+")").parent().show();
+	if (selectedArtist === "") {
+		$(".album:contains("+selectedAlbum+")").parent().show();
+	} else  if (selectedAlbum === "") {
+		$(".artist:contains("+selectedArtist+")").parent().show();
+	} else {
+		$(".album:contains("+selectedAlbum+")").parent().show();
+		$(".artist:contains("+selectedArtist+")").parent().show();
+
+	}
+	
+	
 }
 
-function unfilterSongs () {
-	$(".artist").parent().show();
-}
 
-module.exports = {filterArtist, unfilterSongs};
+
+module.exports = {filterSongs};

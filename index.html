@@ -24,7 +24,7 @@
 					<label>Artist:</label>
 					<br>
 					<select id="artist-selector" class="form-group" name="artist">
-						<option selected disabled>Please Select an Artist</option>
+						<option value="">Any Artist</option>
 						<option>Kanye West</option>
 						<option>Beyoncé</option>
 						<option>Banks</option>
@@ -34,8 +34,8 @@
 					<br>
 					<label>Album:</label>
 					<br>
-					<select id="ablum-selector" class="form-group" name="album">
-						<option selected disabled>Please Selet an Album</option>
+					<select id="album-selector" class="form-group" name="album">
+						<option value="">Any Album</option>
 						<option>Graduation</option>
 						<option>4</option>
 						<option>The Alter</option>
@@ -67,7 +67,7 @@
 					</div>
 
 					<button type="button" id="filter-button" class="btn btn-lrg btn-primary">Filter</button>
-					<button type="button" id="unfilter-button" class="btn btn-lrg btn-success">Un-Filter</button>
+					
 				</form>
 			</div>
 			<div class="col-md-8 songInfo" id="songInfo">
