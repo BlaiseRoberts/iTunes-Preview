@@ -1,12 +1,27 @@
 [
 	{
 		"title":"Countdown",
-		"artist":"Beyonce",
+		"artist":"Beyoncé",
 		"album":"4"
+	},
+	{
+		"title":"Gemini Feed",
+		"artist":"Banks",
+		"album":"The Alter"
 	}, 
 	{
-		"title":"Paris",
-		"artist":"The Chainsmokers",
-		"album":"Paris- Single"
+		"title":"All Night",
+		"artist":"Chance the Rapper",
+		"album":"Coloring Book"
+	}, 
+	{
+		"title":"Retrograde",
+		"artist":"James Blake",
+		"album":"Overgrown"
+	},  
+	{
+		"title":"Good Life",
+		"artist":"Kanye West",
+		"album":"Graduation"
 	} 
 ]

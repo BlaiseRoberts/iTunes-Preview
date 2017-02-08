@@ -23,7 +23,8 @@
 					<input type="range" name="songLength">
 					<label>Artist:</label>
 					<br>
-					<select name="artist">
+					<select id="artist-selector" class="form-group" name="artist">
+						<option selected disabled>Please Select an Artist</option>
 						<option>Kanye West</option>
 						<option>Beyoncé</option>
 						<option>Banks</option>
@@ -33,7 +34,8 @@
 					<br>
 					<label>Album:</label>
 					<br>
-					<select name="album">
+					<select id="ablum-selector" class="form-group" name="album">
+						<option selected disabled>Please Selet an Album</option>
 						<option>Graduation</option>
 						<option>4</option>
 						<option>The Alter</option>
@@ -64,7 +66,8 @@
 						</div>
 					</div>
 
-					<button type="button" class="btn btn-lrg btn-primary">Filter</button>
+					<button type="button" id="filter-button" class="btn btn-lrg btn-primary">Filter</button>
+					<button type="button" id="unfilter-button" class="btn btn-lrg btn-success">Un-Filter</button>
 				</form>
 			</div>
 			<div class="col-md-8 songInfo" id="songInfo">
@@ -72,12 +75,13 @@
 			<!-- 	Print to DOM here -->
 			
 			</div>
-		</div>
-		<div class=button-container>
+			<div class="button-container col-md-12">
 				
 				<button type="button" class="btn btn-lrg btn-success" id="moreButton">More ></button>
 				
+			</div>
 		</div>
+		
 		<section id="add-music-view">
 			<div class="flexrow">
 			<label for=songName"">Song Name :</label>
@@ -97,6 +101,6 @@
 		</section>
 	<script type="text/javascript" src="/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="/dist/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/javascripts/songs.js"></script>
+	<script type="text/javascript" src="/dist/app.js"></script>
 </body>
 </html>
