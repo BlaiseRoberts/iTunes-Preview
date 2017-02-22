@@ -4,15 +4,13 @@
   "description": "includes bootstrap and jquery, no sass",
   "main": "index.js",
   "scripts": {
-    "test": "lkfjasd"
+    "test": "lksd"
   },
   "author": "Blaise Roberts",
   "license": "ISC",
   "devDependencies": {
     "bootstrap": "^3.3.7",
-    "browserify": "^14.0.0",
     "grunt": "^1.0.1",
-    "grunt-browserify": "^5.0.0",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-contrib-sass": "^1.0.0",
@@ -21,5 +19,11 @@
     "jshint": "^2.9.4",
     "jshint-stylish": "^2.2.1",
     "matchdep": "^1.0.1"
+  },
+  "dependencies": {
+    "angular": "^1.6.2",
+    "angular-route": "^1.6.2",
+    "angularfire": "^2.3.0",
+    "firebase": "^3.6.9"
   }
 }
