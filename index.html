@@ -8,64 +8,33 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
-<body class="container-fluid">
-	<nav class="navbar navbar-inverse">
-	  <div class="container-fluid">
-	    <!-- Brand and toggle get grouped for better mobile display -->
-	    <div class="navbar-header">
-	      <a class="navbar-brand" href="#">Musixxx</a>
-	    </div>
+<body ng-app="MusicApp">
+  <div ng-include="'partials/navbar.html'"></div>
+  <div ng-view></div>
 
-	    <!-- Collect the nav links, forms, and other content for toggling -->
-	 
-	      <ul class="nav navbar-nav">
-	        <li><a href="#">View Music</a></li>
-	        <li><a href="#">Add Music</a></li>
-	        <li><a href="#">Profile</a></li>
-	      </ul>
-	      <form class="navbar-form navbar-right">
-	        <div class="form-group">
-	          <input type="text" class="form-control" placeholder="Search">
-	        </div>
-	        <button type="button" class="btn btn-default">Submit</button>
-	      </form>
-	     
-	    
-	  </div><!-- /.container-fluid -->
-	</nav>
-		<div class="row visible" id="list-music-view">
-			
-			<div class="col-md-11 songInfo" id="songInfo">
 		
-			<!-- 	Print to DOM here -->
 			
-			</div>
-			<div class="button-container col-md-12">
-				
-				<button type="button" class="btn btn-lrg btn-success" id="moreButton">More ></button>
-				
-			</div>
-		</div>
+			
 		
-		<section id="add-music-view">
-			<div class="flexrow">
-			<label for=songName"">Song Name :</label>
-			<input type="text" name="songName" id="newSongName" placeholder="Title">
-			</div>
-			<div class="flexrow">
-			<label for="artist">Artist :</label>
-			<input type="text" name="artist" id="newArtist" placeholder="Artist">
-			</div>
-			<div class="flexrow">
-			<label for="album">Album :</label>
-			<input type="text" name="album" id="newAlbum" placeholder="Album">
-			</div>
-			<div class="flexrow">
-			<button type="button" id="addButton" class="btn-lrg btn-info">Add!!!</button>
-			</div>
-		</section>
-	<script type="text/javascript" src="/dist/jquery.min.js"></script>
-	<script type="text/javascript" src="/dist/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/dist/app.js"></script>
+  <script type="text/javascript" src="/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/lib/node_modules/angular/angular.min.js"></script>
+  <script type="text/javascript" src="/lib/node_modules/angular-route/angular-route.min.js"></script>
+  <script type="text/javascript" src="lib/node_modules/firebase/firebase.js"></script>
+
+
+  <script type="text/javascript" src="/app/app.js"></script>
+  <script type="text/javascript" src="app/values/fb-creds.js"></script>
+
+  <script type="text/javascript" src="app/factories/AuthFactory.js"></script>
+  <script type="text/javascript" src="app/factories/MusicFactory.js"></script>
+
+  <script type="text/javascript" src="app/controllers/NavCtrl.js"></script>
+  <script type="text/javascript" src="app/controllers/ListCtrl.js"></script>
+  <script type="text/javascript" src="app/controllers/NewMusicCtrl.js"></script>
+  <script type="text/javascript" src="app/controllers/SongCtrl.js"></script>
+  <script type="text/javascript" src="app/controllers/EditSongCtrl.js"></script>
+
+
 </body>
 </html>
