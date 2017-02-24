@@ -1,8 +1,23 @@
 "use strict";
 
-app.controller("NavCtrl", function($scope, $window, AuthFactory, $location){
-
+app.controller("NavCtrl", function($scope, $window, AuthFactory, $location, FilterFactory){
+	$scope.filterText = FilterFactory;
 	$scope.isLoggedIn = false;
+	$scope.listView = false;
+	$scope.addView = false;
+
+	$scope.goToListView = ()=>{
+		$scope.listView = true;
+		$scope.addView = false;
+	};
+	$scope.goToAddView = ()=>{
+		$scope.addView = true;
+		$scope.listView = false;
+	};
+	$scope.clearInputs = ()=>{
+		$scope.listView = false;
+		$scope.addView = false;
+	};
 
 
 	//run these when controller loads
@@ -18,6 +33,8 @@ app.controller("NavCtrl", function($scope, $window, AuthFactory, $location){
 			console.log("logged out?", data);
 			$window.location.url = "#!/login"; //////////////////No going back
 			$scope.isLoggedIn = false;
+			$scope.listView = false;
+			$scope.addView = false;
 		}, function(error){
 			console.log("error occured on logout");
 		});
@@ -51,6 +68,8 @@ app.controller("NavCtrl", function($scope, $window, AuthFactory, $location){
 	    .then( () => {
 	        $window.location.href = "#!/profile";///////////// you can go back
 	        $scope.isLoggedIn = true;
+	        $scope.listView = false;
+			$scope.addView = false;
 	    });
 	};
 
@@ -63,6 +82,8 @@ app.controller("NavCtrl", function($scope, $window, AuthFactory, $location){
 	    	//Once logged in, go to another view
 	    	$window.location.href= "#!/profile";///////////////// you can go back
 	    	$scope.isLoggedIn = true;
+	    	$scope.listView = false;
+			$scope.addView = false;
 	  	}).catch(function(error) {
 	    	// Handle the Errors.
 	    	console.log("error with google login", error);

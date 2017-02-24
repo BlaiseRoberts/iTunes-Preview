@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller('SongCtrl', function ($scope, $routeParams, MusicFactory, AuthFactory) {
+app.controller('SongCtrl', function ($scope, $routeParams, MusicFactory, AuthFactory, $window) {
 	$scope.items = [];
 	let user = AuthFactory.getUser();
 
@@ -11,4 +11,9 @@ app.controller('SongCtrl', function ($scope, $routeParams, MusicFactory, AuthFac
 			return item.id === $routeParams.itemId;
 		})[0];
 	});
+
+	$scope.goToEdit = ()=>{
+		console.log("you clicked edit");
+		$window.location.href = `#!/music/${$scope.selectedSong.id}/edit`;
+	};
 });

@@ -42,12 +42,12 @@ app.config(['$routeProvider', function ($routeProvider) {
         controller: "NewMusicCtrl",
         resolve: {isAuth}
     }).
-    when('/music/:itemId', {
+    when('/music/:songId', {
         templateUrl: "partials/song-details.html",
         controller: "SongCtrl",
         resolve: {isAuth}
     }).
-    when('/music/:itemId/edit', {
+    when('/music/:songId/edit', {
         templateUrl: "partials/addmusic.html",
         controller: "EditSongCtrl",
         resolve: {isAuth}

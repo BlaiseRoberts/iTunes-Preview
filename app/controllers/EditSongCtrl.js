@@ -5,17 +5,18 @@ app.controller("EditSongCtrl", function($scope, $location, $routeParams, MusicFa
   $scope.btnText = "Update";
   $scope.newMusic = {};
 
-  // MusicFactory.getSingleItem($routeParams.itemId)
-  // .then(function successCallback(response){
-  //    console.log("getSingleItemresponse", response);
-  //     $scope.newMusic = response;
-  // });
+  MusicFactory.getSingleSong($routeParams.songId)
+  .then(function successCallback(response){
+     console.log("getSingleItemresponse", response);
+      $scope.newMusic = response;
+  });
     
-  // $scope.addNewItem = function(){
-  //   MusicFactory.updateItem($routeParams.itemId, $scope.newTask)
-  //   .then(function successCallback(response) {
-  //     console.log(response);
-  //     $location.url("/music/list");
-  //   });
-  // };
+  $scope.addNewMusic = function(){
+    MusicFactory.updateSong($routeParams.songId, $scope.newMusic)
+    .then(function successCallback(response) {
+      console.log(response);
+      $location.url("/music/list");
+      
+    });
+  };
 });

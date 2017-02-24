@@ -26,12 +26,31 @@ app.factory('MusicFactory', function (FBCreds, $q, $http) {
 			});
 		});
 	};
-	let deleteMusic = (itemID) =>{
-		console.log("delete in factory", itemID);
+	let deleteMusic = (songID) =>{
 		return $q((resolve)=>{
-			$http.delete(`${FBCreds.databaseURL}/songs/${itemID}.json`)
+			$http.delete(`${FBCreds.databaseURL}/songs/${songID}.json`)
 			.then((response)=>{
 				resolve(response);
+			});
+		});
+	};
+	let updateSong = (songID, editedSong) =>{
+		return $q((resolve)=>{
+			$http.patch(`${FBCreds.databaseURL}/songs/${songID}.json`,
+				angular.toJson(editedSong))
+			.then((response)=>{
+				resolve(response);
+			});
+		});
+	};
+	let getSingleSong = (songID) => {
+		return $q((resolve, reject)=>{
+			$http.get(`${FBCreds.databaseURL}/songs/${songID}.json`).then((musicObj)=>{
+				console.log(musicObj);
+				resolve(musicObj.data);
+			})
+			.catch((error)=>{
+				reject(error);
 			});
 		});
 	};
@@ -40,6 +59,8 @@ app.factory('MusicFactory', function (FBCreds, $q, $http) {
 	return {
 		getMusicList,
 		postNewMusic,
-		deleteMusic
+		deleteMusic,
+		updateSong,
+		getSingleSong
 	};
 });
