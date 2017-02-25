@@ -17,10 +17,10 @@ app.factory('MusicFactory', function (FBCreds, $q, $http) {
 			});
 		});
 	};
-	let postNewMusic = (newItem)=>{
+	let postNewMusic = (newSong)=>{
 		return $q((resolve, reject) =>{
 			$http.post(`${FBCreds.databaseURL}/songs.json`,
-				JSON.stringify(newItem))
+				angular.toJson(newSong))
 			.then((ObjectFromFirebase)=>{
 				resolve(ObjectFromFirebase);
 			});
@@ -54,6 +54,18 @@ app.factory('MusicFactory', function (FBCreds, $q, $http) {
 			});
 		});
 	};
+	let getiTunes = (artist) => {
+		return $q((resolve, reject)=>{
+			$http.get(`https://itunes-proxy.herokuapp.com/api/itunes/?term=${artist}&media=music&limit=25`).then((musicObj)=>{
+				console.log(musicObj);
+				resolve(musicObj.data);
+			})
+			.catch((error)=>{
+				reject(error);
+			});
+		});
+	};
+
 
 
 	return {
@@ -61,6 +73,7 @@ app.factory('MusicFactory', function (FBCreds, $q, $http) {
 		postNewMusic,
 		deleteMusic,
 		updateSong,
-		getSingleSong
+		getSingleSong,
+		getiTunes
 	};
 });

@@ -4,19 +4,16 @@ app.controller("NavCtrl", function($scope, $window, AuthFactory, $location, Filt
 	$scope.filterText = FilterFactory;
 	$scope.isLoggedIn = false;
 	$scope.listView = false;
-	$scope.addView = false;
+	
 
 	$scope.goToListView = ()=>{
 		$scope.listView = true;
-		$scope.addView = false;
 	};
 	$scope.goToAddView = ()=>{
-		$scope.addView = true;
 		$scope.listView = false;
 	};
 	$scope.clearInputs = ()=>{
-		$scope.listView = false;
-		$scope.addView = false;
+		$scope.listView = false;	
 	};
 
 
@@ -34,7 +31,6 @@ app.controller("NavCtrl", function($scope, $window, AuthFactory, $location, Filt
 			$window.location.url = "#!/login"; //////////////////No going back
 			$scope.isLoggedIn = false;
 			$scope.listView = false;
-			$scope.addView = false;
 		}, function(error){
 			console.log("error occured on logout");
 		});
@@ -69,7 +65,6 @@ app.controller("NavCtrl", function($scope, $window, AuthFactory, $location, Filt
 	        $window.location.href = "#!/profile";///////////// you can go back
 	        $scope.isLoggedIn = true;
 	        $scope.listView = false;
-			$scope.addView = false;
 	    });
 	};
 
@@ -83,7 +78,6 @@ app.controller("NavCtrl", function($scope, $window, AuthFactory, $location, Filt
 	    	$window.location.href= "#!/profile";///////////////// you can go back
 	    	$scope.isLoggedIn = true;
 	    	$scope.listView = false;
-			$scope.addView = false;
 	  	}).catch(function(error) {
 	    	// Handle the Errors.
 	    	console.log("error with google login", error);

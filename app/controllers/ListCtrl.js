@@ -7,7 +7,7 @@ app.controller('ListCtrl', function ($scope, MusicFactory, AuthFactory, FilterFa
     let user = AuthFactory.getUser();
 
     $scope.filterSongs = (item)=>{
-        return item.title.match($scope.filterText.filter) || item.artist.match($scope.filterText.filter) || item.album.match($scope.filterText.filter);
+        return item.trackName.match($scope.filterText.filter) || item.artistName.match($scope.filterText.filter) || item.collectionName.match($scope.filterText.filter);
     };
 
     
