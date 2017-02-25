@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module("MusicApp", ["ngRoute"]);
+var app = angular.module("MusicApp", ["ngRoute", "angular.filter"]);
 
 let isAuth = (AuthFactory) => new Promise ( (resolve, reject) => {
   // console.log("running isAuth");

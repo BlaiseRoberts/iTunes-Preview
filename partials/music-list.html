@@ -5,12 +5,12 @@
 			<label>Select an Artist</label>
 			<select class="form-control" ng-model="artistSelected">
 			  <option selected value="">All Artists</option>
-			  <option ng-repeat="item in music" value="{{item.artistName}}">{{item.artistName}}</option>
+			  <option ng-repeat="item in music | unique: 'artistName'" value="{{item.artistName}}">{{item.artistName}}</option>
 			</select>
 			<label>Select an Album</label>
 			<select class="form-control" ng-model="albumSelected">
 			  <option selected value="">All Albums</option>
-			  <option ng-repeat="item in music" value="{{item.collectionName}}">{{item.collectionName}}</option>
+			  <option ng-repeat="item in music | unique: 'collectionName'" value="{{item.collectionName}}">{{item.collectionName}}</option>
 			</select>
 		</form>
 
