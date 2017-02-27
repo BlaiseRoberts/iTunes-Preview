@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module("MusicApp", ["ngRoute", "angular.filter"]);
+var app = angular.module("MusicApp", ["ngRoute", "angular.filter", "angular-loading-bar"]);
 
 let isAuth = (AuthFactory) => new Promise ( (resolve, reject) => {
   // console.log("running isAuth");
@@ -16,6 +16,10 @@ let isAuth = (AuthFactory) => new Promise ( (resolve, reject) => {
         }
     });
 });
+
+app.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+    cfpLoadingBarProvider.parentSelector = '#loading-bar-container';
+}]);
 
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.

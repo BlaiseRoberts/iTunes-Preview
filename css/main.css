@@ -12,4 +12,23 @@
   margin: 1em;
   padding: .5em; }
 
+.thumbnail {
+  background-color: #e3f2fd;
+  height: 20em;
+  overflow: scroll; }
+
+.album-art {
+  margin-left: .5em !important;
+  margin-top: .5em !important;
+  display: inline-block !important; }
+
+h3 {
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  max-width: 100%; }
+
+#loading-bar .bar {
+  position: relative; }
+
 /*# sourceMappingURL=main.css.map */

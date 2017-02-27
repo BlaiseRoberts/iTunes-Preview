@@ -1,43 +1,122 @@
-# Music History
+# Solving Cross-Origin-Relationship Problems
+This will help you if you are testing a URL successfully in Postman, but your application will not successfully make your request.  You will get an error in your console that looks like this: 
+```
+XMLHttpRequest cannot load https://itunes.apple.com/search?term=beyonce&media=music. No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://localhost:8080' is therefore not allowed access.
+```
+or like this:
+```
+Blocked loading resource from url not allowed by $sceDelegate policy.  URL: https://itunes.apple.com/search?term=beyonce&media=music
+```
 
-This is the project that you will be working for your individual work throughout the entire front end course. Don't worry, you'll be building lots of other applications, but when you learn a new technique, library or language, you'll be cutting your teeth with it on Music History.
+There are a few ways to fix this problem.
 
-I've started you off with a very basic HTML document, the `index.html` file. This file name is the default file that most any web server looks for in the directory in which is was started. This is why you don't have to type in `www.google.com/index.html`. If the file exists, the web server sends it back to you if you just request the root URL.
+## Short Answer - Chrome Extension
+You can download a Chrome extension that enables CORS on your browser.  This is a great quick fix, or a great testing tool to make sure that you're correctly diagnosing the problem.  You can access the extension from this link:
 
-> **Terminology:** Root URL simply means your domain name (or IP address) with no other documents, or folders specified. `www.google.com` is the root URL of Google's web site, but `www.google.com/finance` is not.
+https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi
 
-## Your first Fork & Clone
+This will add a 'CORS' icon to your extensions that you can access to enable/disable CORS to your browser.  (Note: When active it may cause others error authenticating with Google, Facebook, etc.)
 
-You're going to get a copy of this Github repository downloaded - a.k.a. cloned - to your machine using the `git` command. Here's how to do it.
+##Long Answer - Proxy Server
+You can setup a proxy server in another repository to act as a 'middleman' between the api you're trying to access and your application.  This will require a new repository.  You can access a boilerplate for this repository here: 
 
-1. Look all the way up and to the right of this screen and you'll see a button with the word **Fork** on it. Click that button,
-2. What you've just done is taken a copy of *my* repository and all the code inside it, and copied into your Github account. You can now do whatever you like to your fork of my repository and it won't affect mine at all.
-3. Now on the top of the page, you will see the text **HTTPS** with a text box next to it. Make sure that HTTPS is selected.
-4. Click the little clipboard icon to the right and it copies that URL to your computer's clipboard.
-5. Open your terminal window and navigate to your workspace folder.
-6. Type in `git clone ` and then paste the URL after that text. You should see
-   `git clone https://github.com/{your account name here}/musichistory-boilerplate.git musichistory`
-1. Hit your enter key and git will do two things. First, it creates a `musichistory` sub-directory under `/workspace` and then downloads all the code into that directory.
-1. Now `ls musichistory`.
-1. You will see the lonely `index.html` file sitting in there.
+https://github.com/BlaiseRoberts/proxy-server
 
-Congratulations, you've just cloned your first Github repository!
+When creating the repository on gitHub you can have it create a .gitignore for you for a 'Node' project.
 
-Now here's your assignment.
+1. Once the repository is created with your .gitignore file you will need to run some commands in your terminal to set up the rest of your files.
+    ```
+    touch server.js
+    npm init
+    npm install express --save
+    npm install request --save
+    ```
+This should create a .js file and a package.json file that should include express and request in your dependencies.  
 
-## Individual Assignment
+1. Now you will be able to copy some code from the boilerplate repository.  From the package.json file you will need to include an 'engine' it will be inserted between your "main" and "scripts" and look like this:
+    ```
+    "engines": {
+        "node": "6.5.0"
+    },
+    ```
+(for more details refer to the boilerplate code)
+From the server.js file you will need to copy the entire file and then next we will edit some of the code.
 
-You will be building the basic structure of your Music History application in HTML and making it look good with the skills you learned in CSS.
+1. After you've copied the server.js file you'll only need to change a few things. You will need the URL of the api your application is trying to access(externalAPI) and a path name that you will create to facilitate the request. ('/made/up/path')
+    You will replace code within the 'app.get' and it should look like this:
+    ```
+    app.get('/made/up/path/*', (req, res) => {
+      let apiCall = req.url.slice('/made/up/path/'.length)
+      let apiReq = `externalAPI${apiCall}`
+      request.get(apiReq, (err, _, body) => {
+        res.send(body)
+      });
+    });
+    ```
+Once this is complete you can test your proxy-server by hosting it locally.  You can run this command in your terminal:
+    ```
+    node server.js
+    ```
+This should give you a localhost for your proxy server on a port.  It will give a message like: 
+    ```
+    Listening on port: 6060
+    ```
+You can now test our new URL in Postman.  It should look something like this:
+    ```
+    localhost:6060/api/itunes/?term=beyonce&media=music
+    ```
+(You will have to use your port number and your 'made/up/path', these will be replaced by the beginning or your original external api URL on your prox-server)
 
-Visit the [Music History mockup](https://moqups.com/chortlehoort/1E8LJX7r/) that I created. You will be recreating that document in your own HTML file.
+    **Woo-Hoo IT WORKS!** 
 
-### Criteria 
+    *(I hope)*
 
-1. Create five options for the artist select element of any artist that you enjoy.
-1. Create at least five options for the album select element. One, or more, album for each artist.
-1. The links in the navigation bar don't need to link to anything just yet, you can use `<a href="#">View music</a>` for now
-1. Pick your four favorite songs from the artists you have chosen and use the information for each in the list that's on the right-hand side. You can use `h1` tags, `div` tags, `section` tags... whatever you like.
+    **Now to server your proxy-server up somewhere outside of your terminal!**
 
-## Completing
+1. Create a Heroku account!
 
-Once you are done, make sure you add your files to git, make a commit, and then push your new code up to Github with the following command `git push origin master`.
+This will invole activating your account via your personal e-mail.
+Once your have created your account you will need to install heroku to your machine via homebrew.  You should type this command into your terminal:
+
+    ```
+     brew install heroku
+    ```
+
+After you have installed heroku we can setup a remote repository on heroku.
+You should click create new app and follow the instructions.  Next, you should type the commands below once inside your proxy-server project:
+
+    ```
+    heroku login  //Login with your user info.
+    heroku git:remote -a test-1111 //'test-1111' replace with your repo's name
+    git add .
+    git commit -am "make it better"
+    git push heroku master
+    ```
+
+Once this is finished it should give you a message in your terminal that will include your new URL or accessing your proxy-server. This end of your message should look something like this:
+
+    ```
+    remote: -----> Compressing...
+    remote:        Done: 14.4M
+    remote: -----> Launching...
+    remote:        Released v3
+    remote:        https://itunes-proxy.herokuapp.com/ deployed to Heroku
+    remote: 
+    remote: Verifying deploy... done.
+    To https://git.heroku.com/itunes-proxy.git
+    ```
+
+You will only need the URL under 'Launching...' 
+(ex: 'https://itunes-proxy.herokuapp.com/')
+You can now test your new address in Postman as well. it should look something like this:
+
+    ```
+    https://itunes-proxy.herokuapp.com/api/itunes/?term=beyonce&media=music
+    ```
+
+We are using the Heroku URL + made/up/path + Params for external api.
+
+__WOO HOO!__
+__You really did it!__
+
+Now you can use this new URL in your application to send httprequests to the external api!

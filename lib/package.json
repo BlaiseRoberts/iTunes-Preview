@@ -23,6 +23,7 @@
   "dependencies": {
     "angular": "^1.6.2",
     "angular-filter": "^0.5.15",
+    "angular-loading-bar": "^0.9.0",
     "angular-route": "^1.6.2",
     "firebase": "^3.6.9"
   }

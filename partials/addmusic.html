@@ -1,39 +1,52 @@
 <div class="col-xs-8 col-xs-offset-2">
 	<h1>{{title}}</h1>
+	<div id="loading-bar-container">
+		<form id="searchForm">
+			<legend>Search for Artists in iTunes</legend>
+	        <div class="form-group">
+	          <input type="text" class="form-control" placeholder="Artist Name" ng-model="iTunesArtist">
+	        </div>
+	        <button type="button" class="btn btn-info" ng-click="searchiTunes()">Search</button>
+	   </form> 
+   </div>  
+	<div class="row">
+	  <div class="col-xs-6" ng-repeat="item in iTunesSongs">
+	    <div class="thumbnail">
+	      <img class="album-art" ng-src={{item.artworkUrl100}} alt="image of {{item.collectionName}}">
+		  <h3>{{item.trackName}}</h3>
+	      <div class="caption">	      	
+	        <p>by {{item.artistName}}</p>
+	       	<p>on the album {{item.collectionName}}</p>
+	       	<audio controls>
+	        	<source ng-src={{item.previewUrl}} type="audio/aac">
+	        </audio>
 
-	<form id="searchForm">
-		<legend>Search for Artists in iTunes</legend>
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Artist Name" ng-model="iTunesArtist">
-        </div>
-        <button type="button" class="btn btn-info" ng-click="searchiTunes()">Search</button>
-   </form> 
-     
-   <div class="panel panel-success" ng-repeat="item in iTunesSongs">
-	  <div class="panel-heading">
-	    <h3 class="panel-title">{{item.trackName}}</h3>
-	  </div>
-	  <div class="panel-body">
-	     by {{item.artistName}} on the album - {{item.collectionName}}
-	  </div>
-	  <div class="panel-footer container">
-	  	<button type="button" id="{{item.trackId}}" class="btn btn-danger btn-xs" ng-click="addiTunesSong($index)">add</button>
+	        <p>Price on iTunes:
+	        <br>
+	        {{item.trackName}} - ${{item.trackPrice}}
+        	<br>
+       		{{item.collectionName}} - ${{item.collectionPrice}}</p>
+	        
+	        <br>
+	        <button type="button" id="{{item.trackId}}" class="btn btn-danger btn-xs" ng-click="addiTunesSong($index)">add</button>
+	        <p><a href="{{item.trackViewUrl}}" target="_blank">View in iTunes Preview</a></p>
+	      </div>
+	    </div>
 	  </div>
 	</div>
-
 
 	<form>
 	  <div class="form-group">
 	    <label for="song-name">Song Name</label>
-	    <input type="text" class="form-control" id="song-name" placeholder="Title" ng-model="newMusic.title"/>
+	    <input type="text" class="form-control" id="song-name" placeholder="Title" ng-model="newMusic.trackName"/>
 	  </div>
 	  <div class="form-group">
 	    <label for="artist">Atrist</label>
-	    <input type="text" class="form-control" id="artist" placeholder="Artist" ng-model="newMusic.artist"/>
+	    <input type="text" class="form-control" id="artist" placeholder="Artist" ng-model="newMusic.artistName"/>
 	  </div>
 	  <div class="form-group">
 	    <label for="album">Album</label>
-	    <input type="text" class="form-control" id="album" placeholder="Album" ng-model="newMusic.album"/>
+	    <input type="text" class="form-control" id="album" placeholder="Album" ng-model="newMusic.collectionName"/>
 	  </div>
 	  <button type="button" class="btn btn-success" ng-click="addNewMusic()">{{btnText}}</button>
 	</form>
