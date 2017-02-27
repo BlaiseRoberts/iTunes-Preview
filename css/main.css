@@ -31,4 +31,7 @@ h3 {
 #loading-bar .bar {
   position: relative; }
 
+.video-thumbnail {
+  height: auto; }
+
 /*# sourceMappingURL=main.css.map */

@@ -14,12 +14,10 @@ app.controller('ListCtrl', function ($scope, MusicFactory, AuthFactory, FilterFa
 
 
     MusicFactory.getMusicList(user).then(function(musicCollection){
-        console.log(musicCollection);
         $scope.music = musicCollection;
     });
 
 	$scope.songDelete = function(id){
-        console.log("delete this item", id);
         MusicFactory.deleteMusic(id)
         .then(function(response){
             MusicFactory.getMusicList(user).then(function(musicCollection){

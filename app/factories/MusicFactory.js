@@ -46,7 +46,6 @@ app.factory('MusicFactory', function (FBCreds, $q, $http) {
 	let getSingleSong = (songID) => {
 		return $q((resolve, reject)=>{
 			$http.get(`${FBCreds.databaseURL}/songs/${songID}.json`).then((musicObj)=>{
-				console.log(musicObj);
 				resolve(musicObj.data);
 			})
 			.catch((error)=>{
@@ -57,7 +56,16 @@ app.factory('MusicFactory', function (FBCreds, $q, $http) {
 	let getiTunes = (artist) => {
 		return $q((resolve, reject)=>{
 			$http.get(`https://itunes-proxy.herokuapp.com/api/itunes/?term=${artist}&media=music&limit=25`).then((musicObj)=>{
-				console.log(musicObj);
+				resolve(musicObj.data);
+			})
+			.catch((error)=>{
+				reject(error);
+			});
+		});
+	};
+	let getiTunesVideo = (artist) => {
+		return $q((resolve, reject)=>{
+			$http.get(`https://itunes-proxy.herokuapp.com/api/itunes/?term=${artist}&media=musicVideo&limit=10`).then((musicObj)=>{
 				resolve(musicObj.data);
 			})
 			.catch((error)=>{
@@ -74,6 +82,7 @@ app.factory('MusicFactory', function (FBCreds, $q, $http) {
 		deleteMusic,
 		updateSong,
 		getSingleSong,
-		getiTunes
+		getiTunes,
+		getiTunesVideo
 	};
 });

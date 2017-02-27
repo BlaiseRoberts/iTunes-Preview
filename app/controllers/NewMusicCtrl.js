@@ -16,10 +16,8 @@ app.controller('NewMusicCtrl', function ($scope, MusicFactory, $location, AuthFa
 
 
      $scope.searchiTunes = function(){
-        console.log(MusicFactory.getiTunes());
         MusicFactory.getiTunes($scope.iTunesArtist)
         .then(function(response){
-            console.log(response.results);
             $scope.iTunesSongs = response.results;
         });
         

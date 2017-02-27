@@ -24,10 +24,8 @@ app.controller("NavCtrl", function($scope, $window, AuthFactory, $location, Filt
 	};
 
 	$scope.logout = () => {
-		console.log("logout clicked");
 		AuthFactory.logoutUser()
 		.then(function(data){
-			console.log("logged out?", data);
 			$window.location.url = "#!/login"; //////////////////No going back
 			$scope.isLoggedIn = false;
 			$scope.listView = false;
@@ -44,13 +42,11 @@ app.controller("NavCtrl", function($scope, $window, AuthFactory, $location, Filt
 
 	//setup functions to be available to the app for register, login email/password, and google
 	$scope.register = () => {
-    	console.log("you clicked register");
 	    AuthFactory.createUser({
 	      email: $scope.account.email,
 	      password: $scope.account.password
 	    })
 	    .then( (userData) => {
-	      console.log("UserCtrl newUser:", userData );
 	      $scope.login();
 	    }, (error) => {
 	        console.log("Error creating user:", error);
@@ -58,24 +54,21 @@ app.controller("NavCtrl", function($scope, $window, AuthFactory, $location, Filt
   	};
 
   	$scope.login = () => {
-    	console.log("you clicked login");
     	AuthFactory
 	    .loginUser($scope.account)
 	    .then( () => {
-	        $window.location.href = "#!/profile";///////////// you can go back
+	        $window.location.href = "#!/music/list";///////////// you can go back
 	        $scope.isLoggedIn = true;
 	        $scope.listView = false;
 	    });
 	};
 
 	$scope.loginGoogle = () => {
-		console.log("you clicked login with Google");
 		AuthFactory.authWithProvider()
 		.then(function(result) {
 	    	var user = result.user.uid;
-	    	console.log("logged in user:", user);
 	    	//Once logged in, go to another view
-	    	$window.location.href= "#!/profile";///////////////// you can go back
+	    	$window.location.href= "#!/music/list";///////////////// you can go back
 	    	$scope.isLoggedIn = true;
 	    	$scope.listView = false;
 	  	}).catch(function(error) {
