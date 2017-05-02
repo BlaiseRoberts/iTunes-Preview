@@ -1,0 +1,58 @@
+<nav class="navbar navbar-inverse" ng-controller="NavCtrl">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#!/">Musix</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+ 
+      <ul class="nav navbar-nav">
+      	<li><a ng-show="!isLoggedIn" href="#" ng-click="loginGoogle()">Login with Google</a></li>
+      	<li><a ng-show="!isLoggedIn" href="#" data-toggle="modal" data-target="#loginRegister">Login/Register</a></li>
+      	<li><a ng-show="isLoggedIn" ng-click="logout()" href="#!/logout">Logout</a></li>
+        <li><a ng-show="isLoggedIn" href="#!/music/list" ng-click="goToListView()">View Music</a></li>
+        <li><a ng-show="isLoggedIn" href="#!/music/add" ng-click="goToAddView()">Add Music</a></li>
+        <li><a ng-show="isLoggedIn" href="#!/music/video" ng-click="clearInputs()">Search Videos</a></li>
+
+      </ul>
+      <form class="navbar-form navbar-right" ng-show="listView">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Filter..." ng-model="filterText.filter">
+        </div>
+      </form>
+      
+    
+  </div><!-- /.container-fluid -->
+  <div class="modal fade" tabindex="-1" role="dialog" id="loginRegister">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Login/Register</h4>
+      </div>
+      <div class="modal-body">
+        <section class="form-group">
+		    <h4>Please enter your information below</h4>
+		    <div>
+		      Email: <input class="form-control" type="text" autofocus="true"  ng-model="account.email">
+		    </div>
+		    <div>
+		      Password: <input class="form-control" type="password" ng-model="account.password">
+		    </div>
+	    </section>
+      </div>
+      <div class="modal-footer">
+        
+        <button class="btn btn-info" ng-click="login()" data-dismiss="modal">Login</button>
+       	<button class="btn btn-primary" ng-click="register()" data-dismiss="modal">Register</button>
+		<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+</nav>

@@ -4,78 +4,42 @@
 <head>
   <meta charset="utf-8">
   <title>Music History</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="lib/node_modules/angular-loading-bar/build/loading-bar.min.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 
-<body class="container-fluid">
-	<div role="navigation" class="row topBlock">
-		<ul class="nav nav-pills col-md-11">
-			<li role="presentation"><a href="#">View Music</a></li>
-			<li role="presentation"><a href="#">Add Music</a></li>
-			<li role="presentation"><a href="#">Profile</a></li>
-		</ul>
-	</div>
-		<div class="row">
-			<div class="col-md-3 form">
-				<form>
-					<label>Song length:</label>
-					<input type="range" name="songLength">
-					<label>Artist:</label>
-					<br>
-					<select name="artist">
-						<option>Kanye West</option>
-						<option>Beyoncé</option>
-						<option>Banks</option>
-						<option>Chance the Rapper</option>
-						<option>James Blake</option>
-					</select>
-					<br>
-					<label>Album:</label>
-					<br>
-					<select name="album">
-						<option>Graduation</option>
-						<option>4</option>
-						<option>The Alter</option>
-						<option>Coloring Book</option>
-						<option>Retrograde</option>
-					</select>
-					<br>
-					<label>Genre:</label>
+<body ng-app="MusicApp">
+  <div ng-include="'partials/navbar.html'"></div>
+  <div ng-view></div>
 
-					<div class="row genreCheck">
-						<div class="col-md-6">
-							<input type="checkbox" name="genre">Rock
-						</div>
-						<div class="col-md-6">
-							<input type="checkbox" name="genre">Classical
-						</div>
-						<div class="col-md-6">
-							<input type="checkbox" name="genre">Pop
-						</div>
-						<div class="col-md-6">
-							<input type="checkbox" name="genre">Jazz
-						</div>
-						<div class="col-md-6">
-							<input type="checkbox" name="genre">Blues
-						</div>
-						<div class="col-md-6">
-							<input type="checkbox" name="genre">Hip hop
-						</div>
-					</div>
+		
+			
+			
+		
+  <script type="text/javascript" src="/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/lib/node_modules/angular/angular.min.js"></script>
+  <script type="text/javascript" src="/lib/node_modules/angular-route/angular-route.min.js"></script>
+  <script type="text/javascript" src="lib/node_modules/firebase/firebase.js"></script>
+  <script type="text/javascript" src="/lib/node_modules/angular-filter/dist/angular-filter.min.js"></script>
+  <script type="text/javascript" src="/lib/node_modules/angular-loading-bar/build/loading-bar.min.js"></script>
 
-					<button type="button">Filter</button>
-				</form>
-			</div>
-			<div class="col-md-8 songInfo" id="songInfo">
-				<section class="row">
-					<h1 class="songName">Song Name</h1>
-						<div class="col-md-3">Artist name</div>
-						<div class="col-md-3">Album name</div>
-						<div class="col-md-3">Genre</div>
-				</section>
-			</div>
-		</div>
-	<script type="text/javascript" src="songs.js"></script>
+  <script type="text/javascript" src="/app/app.js"></script>
+  <script type="text/javascript" src="app/values/fb-creds.js"></script>
+
+  <script type="text/javascript" src="app/factories/AuthFactory.js"></script>
+  <script type="text/javascript" src="app/factories/MusicFactory.js"></script>
+  <script type="text/javascript" src="app/factories/FilterFactory.js"></script>
+
+  <script type="text/javascript" src="app/controllers/NavCtrl.js"></script>
+  <script type="text/javascript" src="app/controllers/ListCtrl.js"></script>
+  <script type="text/javascript" src="app/controllers/NewMusicCtrl.js"></script>
+  <script type="text/javascript" src="app/controllers/SongCtrl.js"></script>
+  <script type="text/javascript" src="app/controllers/EditSongCtrl.js"></script>
+  <script type="text/javascript" src="app/controllers/VideoCtrl.js"></script>
+
+  
+
 </body>
 </html>

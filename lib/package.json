@@ -1,0 +1,30 @@
+{
+  "name": "music-history",
+  "version": "1.0.0",
+  "description": "includes bootstrap and jquery, no sass",
+  "main": "index.js",
+  "scripts": {
+    "test": "lksd"
+  },
+  "author": "Blaise Roberts",
+  "license": "ISC",
+  "devDependencies": {
+    "bootstrap": "^3.3.7",
+    "grunt": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "jquery": "^3.1.1",
+    "jshint": "^2.9.4",
+    "jshint-stylish": "^2.2.1",
+    "matchdep": "^1.0.1"
+  },
+  "dependencies": {
+    "angular": "^1.6.2",
+    "angular-filter": "^0.5.15",
+    "angular-loading-bar": "^0.9.0",
+    "angular-route": "^1.6.2",
+    "firebase": "^3.6.9"
+  }
+}

@@ -1,0 +1,25 @@
+<div class="col-xs-8 col-xs-offset-2">
+	<h1>{{title}}</h1>
+	<div id="loading-bar-container">
+		<form id="searchForm">
+			<legend>Search for Artist's Videos on iTunes</legend>
+	        <div class="form-group">
+	          <input type="text" class="form-control" placeholder="Artist Name" ng-model="iTunesArtist">
+	        </div>
+	        <button type="button" class="btn btn-info" ng-click="searchiTunes()">Search</button>
+	   </form> 
+   </div>  
+</div>   
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1" ng-repeat="item in iTunesSongs">
+    <div class="thumbnail video-thumbnail">
+	  <h3>{{item.trackName}} by {{item.artistName}} on the album {{item.collectionName}}</h3>
+      <div class="caption">	      	
+       	<video controls>
+        	<source ng-src={{item.previewUrl}} type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</div>
+

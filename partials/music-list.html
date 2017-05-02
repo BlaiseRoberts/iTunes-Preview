@@ -1,0 +1,44 @@
+<div class="col-xs-8 col-xs-offset-2">
+	<div>
+		<form id="filterForm">
+			<legend>Filter Songs</legend>
+			<label>Select an Artist</label>
+			<select class="form-control" ng-model="artistSelected">
+			  <option selected value="">All Artists</option>
+			  <option ng-repeat="item in music | unique: 'artistName'" value="{{item.artistName}}">{{item.artistName}}</option>
+			</select>
+			<label>Select an Album</label>
+			<select class="form-control" ng-model="albumSelected">
+			  <option selected value="">All Albums</option>
+			  <option ng-repeat="item in music | unique: 'collectionName'" value="{{item.collectionName}}">{{item.collectionName}}</option>
+			</select>
+		</form>
+
+		
+		<div class="row">
+		  <div class="col-xs-6" ng-repeat="item in music | filter: filterSongs | filter:{artistName:artistSelected, collectionName:albumSelected}">
+		    <div class="thumbnail">
+		      <img class="album-art" ng-src={{item.artworkUrl100}} alt="image of {{item.collectionName}}">
+			  <h3><a ng-href="#!/music/{{item.id}}">{{item.trackName}}</a></h3>
+		      <div class="caption">	      	
+		        <p>by {{item.artistName}}</p>
+		       	<p>on the album {{item.collectionName}}</p>
+		       	<audio controls>
+		        	<source ng-src={{item.previewUrl}} type="audio/aac">
+		        </audio>
+
+		        <p>Price on iTunes:
+		        <br>
+		        {{item.trackName}} - ${{item.trackPrice}}
+	        	<br>
+	       		{{item.collectionName}} - ${{item.collectionPrice}}</p>
+		        
+		        <br>
+		        <button type="button" class="btn btn-danger btn-xs" ng-click="songDelete(item.id)">Delete</button>
+		        <p><a href="{{item.trackViewUrl}}" target="_blank">View in iTunes Preview</a></p>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+</div>
