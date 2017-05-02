@@ -1,3 +1,9 @@
+# Musixxx
+This application was created to let a user preview music from the iTunes store and add then to their personal wish list.  This app was created with Firebase, AngularJS, and Heroku.  There is also a how to for creating a proxy-server that I used to solve CORS problems.
+
+## Viewing the Application
+You can click (here)[https://blaiseroberts.github.io/iTunes-Preview] to view the site hosted on GitHub Pages or follow the link in the description of the repository at the top of the page.
+
 # Solving Cross-Origin-Relationship Problems
 This will help you if you are testing a URL successfully in Postman, but your application will not successfully make your request.  You will get an error in your console that looks like this: 
 ```
