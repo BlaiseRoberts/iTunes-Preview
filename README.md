@@ -17,7 +17,7 @@ https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeac
 
 This will add a 'CORS' icon to your extensions that you can access to enable/disable CORS to your browser.  (Note: When active it may cause others error authenticating with Google, Facebook, etc.)
 
-##Long Answer - Proxy Server
+## Long Answer - Proxy Server
 You can setup a proxy server in another repository to act as a 'middleman' between the api you're trying to access and your application.  This will require a new repository.  You can access a boilerplate for this repository here: 
 
 https://github.com/BlaiseRoberts/proxy-server
@@ -54,24 +54,24 @@ From the server.js file you will need to copy the entire file and then next we w
     });
     ```
 Once this is complete you can test your proxy-server by hosting it locally.  You can run this command in your terminal:
-    ```
+  
     node server.js
     ```
 This should give you a localhost for your proxy server on a port.  It will give a message like: 
-    ```
+   
     Listening on port: 6060
     ```
 You can now test our new URL in Postman.  It should look something like this:
-    ```
+   
     localhost:6060/api/itunes/?term=beyonce&media=music
     ```
 (You will have to use your port number and your 'made/up/path', these will be replaced by the beginning or your original external api URL on your prox-server)
 
-    **Woo-Hoo IT WORKS!** 
+**Woo-Hoo IT WORKS!** 
 
-    *(I hope)*
+*(I hope)*
 
-    **Now to server your proxy-server up somewhere outside of your terminal!**
+**Now to server your proxy-server up somewhere outside of your terminal!**
 
 1. Create a Heroku account!
 
