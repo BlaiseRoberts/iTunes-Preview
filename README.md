@@ -56,15 +56,15 @@ From the server.js file you will need to copy the entire file and then next we w
 Once this is complete you can test your proxy-server by hosting it locally.  You can run this command in your terminal:
   
     node server.js
-    ```
+    
 This should give you a localhost for your proxy server on a port.  It will give a message like: 
    
     Listening on port: 6060
-    ```
+    
 You can now test our new URL in Postman.  It should look something like this:
    
     localhost:6060/api/itunes/?term=beyonce&media=music
-    ```
+    
 (You will have to use your port number and your 'made/up/path', these will be replaced by the beginning or your original external api URL on your prox-server)
 
 **Woo-Hoo IT WORKS!** 
@@ -78,24 +78,24 @@ You can now test our new URL in Postman.  It should look something like this:
 This will invole activating your account via your personal e-mail.
 Once your have created your account you will need to install heroku to your machine via homebrew.  You should type this command into your terminal:
 
-    ```
+    
      brew install heroku
-    ```
+    
 
 After you have installed heroku we can setup a remote repository on heroku.
 You should click create new app and follow the instructions.  Next, you should type the commands below once inside your proxy-server project:
 
-    ```
+    
     heroku login  //Login with your user info.
     heroku git:remote -a test-1111 //'test-1111' replace with your repo's name
     git add .
     git commit -am "make it better"
     git push heroku master
-    ```
+    
 
 Once this is finished it should give you a message in your terminal that will include your new URL or accessing your proxy-server. This end of your message should look something like this:
 
-    ```
+    
     remote: -----> Compressing...
     remote:        Done: 14.4M
     remote: -----> Launching...
@@ -104,15 +104,15 @@ Once this is finished it should give you a message in your terminal that will in
     remote: 
     remote: Verifying deploy... done.
     To https://git.heroku.com/itunes-proxy.git
-    ```
+    
 
 You will only need the URL under 'Launching...' 
 (ex: 'https://itunes-proxy.herokuapp.com/')
 You can now test your new address in Postman as well. it should look something like this:
 
-    ```
+    
     https://itunes-proxy.herokuapp.com/api/itunes/?term=beyonce&media=music
-    ```
+    
 
 We are using the Heroku URL + made/up/path + Params for external api.
 
