@@ -17,7 +17,7 @@
 		
 		<div class="row">
 		  <div class="col-xs-6" ng-repeat="item in music | filter: filterSongs | filter:{artistName:artistSelected, collectionName:albumSelected}">
-		    <div class="thumbnail">
+		    <div class="thumbnail text-center">
 		      <img class="album-art" ng-src={{item.artworkUrl100}} alt="image of {{item.collectionName}}">
 			  <h3><a ng-href="#!/music/{{item.id}}">{{item.trackName}}</a></h3>
 		      <div class="caption">	      	

@@ -12,7 +12,7 @@ app.controller('NewMusicCtrl', function ($scope, MusicFactory, $location, AuthFa
         uid: AuthFactory.getUser()
      };
 	 
-
+     $scope.SearchToAdd = true;
 
 
      $scope.searchiTunes = function(){

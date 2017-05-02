@@ -1,6 +1,6 @@
 <div class="col-xs-8 col-xs-offset-2">
 	<h1>{{title}}</h1>
-	<div id="loading-bar-container">
+	<div ng-show="SearchToAdd" id="loading-bar-container">
 		<form id="searchForm">
 			<legend>Search for Artists in iTunes</legend>
 	        <div class="form-group">
@@ -11,7 +11,7 @@
    </div>  
 	<div class="row">
 	  <div class="col-xs-6" ng-repeat="item in iTunesSongs">
-	    <div class="thumbnail">
+	    <div class="thumbnail text-center">
 	      <img class="album-art" ng-src={{item.artworkUrl100}} alt="image of {{item.collectionName}}">
 		  <h3>{{item.trackName}}</h3>
 	      <div class="caption">	      	
@@ -28,7 +28,7 @@
        		{{item.collectionName}} - ${{item.collectionPrice}}</p>
 	        
 	        <br>
-	        <button type="button" id="{{item.trackId}}" class="btn btn-danger btn-xs" ng-click="addiTunesSong($index)">add</button>
+	        <button type="button" id="{{item.trackId}}" class="btn btn-success btn-xs" ng-click="addiTunesSong($index)">add</button>
 	        <p><a href="{{item.trackViewUrl}}" target="_blank">View in iTunes Preview</a></p>
 	      </div>
 	    </div>
